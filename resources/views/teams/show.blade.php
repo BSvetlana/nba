@@ -21,8 +21,33 @@
             </li>
         @endforeach
 
-
     </div><!--/span-->
+    <hr>
+    <h4>Comments</h4>
+    @foreach($team->comments as $comment)
+        <li>
+            <strong>{{ $comment->content }}</strong>
+
+        </li>
+    @endforeach
+    <hr>
+
+    <h4>Add Comments</h4>
+
+    <form method="POST" action="/teams/{{ $team->id }}/comment">
+
+        {{ csrf_field() }}
+
+        <div class="form-group">
+            <label for="content">Body</label>
+            <textarea class="form-control" id="content" name="content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
 
 
 @endsection

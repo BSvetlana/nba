@@ -18,6 +18,8 @@ Route::get('/teams/{id}','TeamsController@show')->name('single-team');
 
 Route::get('players/{id}','PlayersController@show')->name('single-player');
 
+Route::post('/teams/{id}/comment', 'CommentsController@store');
+
 Route::get('/register','RegisterController@create');
 Route::post('/register','RegisterController@store');
 
