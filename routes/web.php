@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\TeamsController;
+
+Route::get('/teams','TeamsController@index')->name('all-teams');
+Route::get('/teams/{id}','TeamsController@show')->name('single-team');
+
+Route::get('players/{id}','PlayersController@show')->name('single-player');
