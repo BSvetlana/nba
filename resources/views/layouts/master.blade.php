@@ -26,6 +26,15 @@
     </button>
     <a class="navbar-brand" href="#">NBA</a>
 
+
+    @if (Auth::check())
+        <a style="color: whitesmoke" class="nav-link ml-auto" href="#">{{ Auth()->user()->name }}</a>
+
+        <a style="color: whitesmoke" class="nav-link" href="/logout">Logout</a>
+    @else
+        <a style="color: whitesmoke" class="nav-link ml-auto" href="/login">Login</a>
+    @endif
+
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -51,6 +60,8 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
+
+
 </nav>
 
 <div class="container">
