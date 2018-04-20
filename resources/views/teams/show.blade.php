@@ -23,14 +23,15 @@
 
     </div><!--/span-->
     <hr>
-    <h4>Comments</h4>
+    <h3>Comments</h3>
     @foreach($team->comments as $comment)
-        <li>
+        <li style="list-style: none">
             <strong>{{ $comment->content }}</strong>
 
         </li>
+        <hr>
     @endforeach
-    <hr>
+
 
     <h4>Add Comments</h4>
 

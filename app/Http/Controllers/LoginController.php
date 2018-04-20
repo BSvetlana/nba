@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 
@@ -10,6 +11,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest',['except'=>'destroy']);
+        $this->middleware('checkVerified', ['only' => ['store']]);
 
     }
 
@@ -33,8 +35,10 @@ class LoginController extends Controller
 
     public function destroy(){
 
+        $this->middleware('guest')->except('logout');
         auth()->logout();
 
         return redirect('/login');
     }
+
 }

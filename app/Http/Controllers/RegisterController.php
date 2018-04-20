@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserVerificationMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\User;
 
 class RegisterController extends Controller
@@ -23,7 +26,7 @@ class RegisterController extends Controller
         $this->validate(request(),[
 
             'name'=>'required',
-            'email'=>'required|email',
+            'email'=>'required|email|unique:users',
             'password'=>'required|confirmed|min:5',
             'password_confirmation'=>''
         ]);
@@ -38,6 +41,22 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/teams');
+        Mail::to($user)->send(new UserVerificationMail($user));
+
+        return redirect(route('login'));
+
+    }
+
+    public function verify($user_id){
+
+        $user = User::find($user_id);
+
+        $user->is_verified = true;
+
+        $user->save();
+
+        session()->flash('success_message', 'Your email is verified successfully.');
+
+        return redirect(route('login'));
     }
 }

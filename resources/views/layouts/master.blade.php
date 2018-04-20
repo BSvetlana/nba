@@ -73,6 +73,13 @@
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
             </p>
 
+                @if($message = session('error_message'))
+                       <div class="alert alert-danger" style="background-color: #ce8483">{{$message}}</div>
+                    @endif
+
+                @if($message = session('success_message'))
+                       <div class="alert alert-success">{{$message}}</div>
+                    @endif
 
             @yield('content')
         </div><!--/span-->
