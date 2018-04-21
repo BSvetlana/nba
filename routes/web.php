@@ -14,6 +14,7 @@ use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommentsController;
 
 Route::get('/teams','TeamsController@index')->name('all-teams');
 Route::get('/teams/{id}','TeamsController@show')->name('single-team');
@@ -21,12 +22,15 @@ Route::get('/teams/{id}','TeamsController@show')->name('single-team');
 Route::get('players/{id}','PlayersController@show')->name('single-player');
 
 Route::post('/teams/{id}/comment', 'CommentsController@store')->name('add-comment');
+Route::get('/comments/forbidden', 'CommentsController@store')->name('comment-forbidden');
 
 Route::get('/register','RegisterController@create')->name('register');
 Route::post('/register','RegisterController@store');
+Route::get('/register/verify/{id}', 'RegisterController@verify')->name('register-verify');
 
 Route::get('/login','LoginController@create')->name('login');
 Route::post('/login','LoginController@store')->name('add-login');
 Route::get('/logout','LoginController@destroy')->name('logout');
 
-Route::get('/register/verify/{id}', 'RegisterController@verify')->name('register-verify');
+
+

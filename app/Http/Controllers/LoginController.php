@@ -30,7 +30,7 @@ class LoginController extends Controller
             ]);
         }
 
-        return redirect('/teams');
+        return redirect('teams');
     }
 
     public function destroy(){
@@ -38,7 +38,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         auth()->logout();
 
-        return redirect('/login');
+        return redirect('teams');
     }
 
 }

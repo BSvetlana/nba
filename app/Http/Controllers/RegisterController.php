@@ -13,7 +13,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest',['only'=>['players','teams']]);
+        //$this->middleware('guest',['only'=>['players','teams']]);
     }
 
     public function create(){
@@ -39,7 +39,7 @@ class RegisterController extends Controller
 
         $user->save();
 
-        auth()->login($user);
+        //auth()->login($user);
 
         Mail::to($user)->send(new UserVerificationMail($user));
 

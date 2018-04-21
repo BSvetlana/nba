@@ -40,7 +40,7 @@
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="content">Body</label>
+            <label for="content">Your Comment</label>
             <textarea class="form-control" id="content" name="content"></textarea>
         </div>
 
