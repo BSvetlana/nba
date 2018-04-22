@@ -15,9 +15,11 @@ use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\NewsController;
 
 Route::get('/teams','TeamsController@index')->name('all-teams');
 Route::get('/teams/{id}','TeamsController@show')->name('single-team');
+Route::get('/news/team/{team}','TeamsController@teamNews')->name('team-news');
 
 Route::get('players/{id}','PlayersController@show')->name('single-player');
 

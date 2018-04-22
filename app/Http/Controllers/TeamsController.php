@@ -25,4 +25,11 @@ class TeamsController extends Controller
 
         return view('teams.show',['team'=>$team]);
     }
+
+    public function teamNews(Team $team){
+
+        $news = $team->news()->with('teams')->paginate(2);
+
+        return view('news.index',['news'=>$news]);
+    }
 }

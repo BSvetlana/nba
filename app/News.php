@@ -10,4 +10,9 @@ class News extends Model
 
         return $this->belongsTo('App\User');
     }
+
+    public function team(){
+
+        return $this->belongsToMany('App\Team','news_team');
+    }
 }

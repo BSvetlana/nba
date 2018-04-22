@@ -20,4 +20,14 @@ class Team extends Model
 
         return $this->hasMany('\App\Comment');
     }
+
+    public function news(){
+
+        return $this->belongsToMany('App\Team','news_team');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
