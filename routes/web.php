@@ -34,8 +34,10 @@ Route::get('/login','LoginController@create')->name('login');
 Route::post('/login','LoginController@store')->name('add-login');
 Route::get('/logout','LoginController@destroy')->name('logout');
 
+Route::get('/news/create','NewsController@create')->name('create-news');
 Route::get('/news','NewsController@index')->name('news');
 Route::get('/news/{id}','NewsController@show')->name('single-news');
+Route::post('/news/store','NewsController@store')->name('store-news');
 
 
 

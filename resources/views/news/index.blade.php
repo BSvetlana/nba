@@ -4,7 +4,7 @@
 
     @foreach($news as $oneNews)
 
-        <div class="jumbotron">
+        <div style="color: deepskyblue" class="jumbotron">
 
             <a href="{{ route('single-news',['id'=>$oneNews->id]) }}"><h2>{{ $oneNews->title }}</h2></a>
             <h5><i>{{ $oneNews->created_at }}</i> by: <b>{{ $oneNews->user->name }}</b></h5>

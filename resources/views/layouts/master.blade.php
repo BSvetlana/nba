@@ -29,6 +29,7 @@
     <a style="color: whitesmoke" class="nav-link" href="/teams">Teams</a>
 
 
+
     @if (Auth::check())
         <a style="color: deepskyblue" class="nav-link ml-auto" href="#">{{ Auth()->user()->name }}</a>
 

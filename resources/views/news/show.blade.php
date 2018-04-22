@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="jumbotron">
+    <div style="color: deepskyblue" class="jumbotron">
         <h2>{{ $oneNews->title }}</h2>
         <hr>
         <p>{{$oneNews->content}}</p>

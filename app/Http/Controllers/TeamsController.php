@@ -28,7 +28,7 @@ class TeamsController extends Controller
 
     public function teamNews(Team $team){
 
-        $news = $team->news()->with('teams')->paginate(2);
+        $news = $team->news()->with('teams')->orderBy('created_at','desc')->paginate(4);
 
         return view('news.index',['news'=>$news]);
     }

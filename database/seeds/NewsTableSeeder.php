@@ -13,8 +13,8 @@ class NewsTableSeeder extends Seeder
      */
     public function run()
     {
-        User::all()->each(function(User $u){
-            $u->news()->saveMany(News::class,4)->make();
+        User::all()->each(function(User $u) {
+            $u->news()->saveMany(factory(News::class, 4)->make());
         });
     }
 }
