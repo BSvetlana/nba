@@ -24,11 +24,13 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">NBA</a>
+    <a style="color: deepskyblue" class="navbar-brand" href="#">NBA</a>
+    <a style="color: whitesmoke" class="nav-link" href="/news">News</a>
+    <a style="color: whitesmoke" class="nav-link" href="/teams">Teams</a>
 
 
     @if (Auth::check())
-        <a style="color: whitesmoke" class="nav-link ml-auto" href="#">{{ Auth()->user()->name }}</a>
+        <a style="color: deepskyblue" class="nav-link ml-auto" href="#">{{ Auth()->user()->name }}</a>
 
         <a style="color: whitesmoke" class="nav-link" href="/logout">Logout</a>
     @else

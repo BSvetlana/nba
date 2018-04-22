@@ -33,6 +33,6 @@ class CommentRecived extends Mailable
     {
         $team = $this->team;
 
-        return $this->view('emails.comment-recived',['team'=>$team]);
+        return $this->view('emails.comment-recived',compact('team'));
     }
 }
