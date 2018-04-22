@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Team;
 use App\User;
-use App\Mail\CommentRecive;
+use App\Mail\CommentRecived;
 use App\Comment;
-
+use Illuminate\Support\Facades\Mail;
 
 class CommentsController extends Controller
 {
@@ -21,7 +21,7 @@ class CommentsController extends Controller
 
 
 
-    public function store($id)
+    public function store($team_id)
     {
 
 
@@ -40,15 +40,19 @@ class CommentsController extends Controller
             $comments = new Comment();
 
             $comments->content = request('content');
-            $comments->team_id = $id;
+            $comments->team_id = $team_id;
             $comments->user_id = auth()->user()->id;
 
             $comments->save();
 
+            $team = Team::find($team_id);
 
-            return redirect()->back();
+            Mail::to($team)->send(new CommentRecived($team));
+            return redirect()->route('single-team',['id'=>$team_id]);
 
         }
+
+
 
     }
 
