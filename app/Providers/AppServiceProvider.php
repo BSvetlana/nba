@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Team;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.master',function($view){
+
+            $teams = Team::has('news')->get();
+            $view->with(compact('teams'));
+        });
     }
 
     /**

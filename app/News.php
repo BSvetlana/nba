@@ -11,8 +11,8 @@ class News extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function team(){
+    public function teams() {
 
-        return $this->belongsToMany('App\Team','news_team');
+        return $this->belongsToMany('App\Team','news_teams');
     }
 }

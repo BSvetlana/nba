@@ -21,7 +21,7 @@
         <div class="form-group">
             @foreach($teams as $team)
                 <div class="checkbox">
-                    <label><input type="checkbox" value="{{ $team->id }}" name="'teams[]'">{{ $team->name }}</label>
+                    <label><input type="checkbox" value="{{ $team->id }}" name="teams[]">{{ $team->name }}</label>
                 </div>
             @endforeach
             @include('partials.error',['key'=>'teams'])

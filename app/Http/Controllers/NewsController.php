@@ -49,7 +49,7 @@ class NewsController extends Controller
 
         $news->save();
 
-        $news->team()->attach(request('teams'));
+        $news->teams()->attach(request('teams'));
 
         session()->flash('success_message', 'Thank you for publishing article on www.nba.com');
 
