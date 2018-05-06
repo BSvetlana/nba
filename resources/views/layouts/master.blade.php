@@ -85,9 +85,10 @@
                     @endif
 
             @yield('content')
+
         </div><!--/span-->
 
-
+        @include('partials.sidebar')
     </div><!--/row-->
 
 @include('partials.footer')
